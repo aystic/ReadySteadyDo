@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready Steady Do</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
+</head>
+
+<body>
+    <main>
+        <div id="target">
+            <div class="wrapper-pomodoro">
+                <div class="navbar">
+                    <div class="navbar-wrapper">
+                        <h1 class="logo">
+                            <a href="">
+                                <img src="assets/icons/icon-white.png" alt="pomofoucs icon" class="logo-icon">
+                                Ready Steady Do
+                            </a>
+                        </h1>
+                        <!-- <span class="btn-container ">
+                            <button class="navbar-btn">
+                                <img src="assets/icons/graph-white.png" alt="graph icon" class="btn-icon-navbar">
+                            </button>
+                            <button class="navbar-btn">
+                                <img src="assets/icons/config-white.png" alt="config icon" class="btn-icon-navbar">
+                                <div class="icon-btn-wrapper">Setting</div>
+                            </button>
+                            <div class="login-wrapper">
+                                <button class="navbar-btn">
+                                    <img src="assets/icons/user-white.png" alt="" class="btn-icon-navbar">
+                                    <div class="icon-btn-wrapper">Login</div>
+                                </button>
+                            </div>
+                        </span> -->
+                    </div>
+                </div>
+                <div>
+                    <div class="todo-wrapper">
+                        <div class="todo-wrapper-border">
+                            <div class="todo-border" id="progress-bar"></div>
+                        </div>
+                        <div class="time-wrapper">
+                            <div class="time-box">
+                                <div class="time-btn-wrapper">
+                                    <button class="time-btn-active" id="pomodoro">Pomodoro</button>
+                                    <button class="time-btn" id="short-break">Short Break</button>
+
+                                    <button class="time-btn" id="long-break">Long Break</button>
+                                </div>
+                                <div id="timer-string" class="time-count"><span id="minutes-left"
+                                        contenteditable="false">25</span>:<span id="seconds-left">00</span></div>
+                                <button id="start-btn" color="color=" hsl(2, 84%, 64%)"
+                                    class="time-count-btn">START</button>
+                                <button id="edit-btn" color="color=" hsl(2, 84%, 64%)"
+                                    class="time-count-btn">EDIT</button>
+                                <button class="task-btn" id="reset-btn"><img class="task-icon"
+                                        src="assets/icons/rotating-arrow-symbol.png"></button>
+                            </div>
+                            <div class="work-status">Time to work!</div>
+                        </div>
+                        <div class="task-container">
+                            <div class="task-list">
+                                <span class="task">Tasks</span>
+                                <div class="task-icon-container">
+                                    <button class="task-btn">
+                                        <img src="assets/icons/threedots-white.png" alt="" class="task-icon">
+                                    </button>
+                                </div>
+                            </div>
+                            <list class="all-tasks">
+
+                            </list>
+                            <div class="task-border"></div>
+                            <div id="add-new-task-btn" class="add-task-container">
+                                <img src="assets/icons/plus-circle-white.png" alt="" class="add-task-icon">
+                                <div class="add-task">Add Task</div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="board">
+                            <div class="boardWrapper">
+                                <div>Est: <span class="boardItems">2</span></div>
+                                <div>Act: <span class="boardItems">0</span></div>
+                                <div>Finish at <span class="boardItems">14:43</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heroimage container">
+            <h1 class="heroimage__title">
+                An online Pomodoro Timer to boost your productivity
+            </h1>
+        </div>
+
+        <div class="catchcopy container">
+            <h2 class="catchcopy__header">What is Ready Steady Do?</h2>
+            <p class="catchcopy__text">
+                Ready Steady Do is a customizable pomodoro timer that works on
+                desktop & mobile browser. The aim of this app is to help you
+                focus on any task you are working on, such as study,
+                writing, or coding. This app is inspired by
+                <a href="https://francescocirillo.com/pages/pomodoro-technique" target="_blank" rel="noopener">Pomodoro
+                    Technique</a>
+                which is a time management method developed by Francesco
+                Cirillo.
+            </p>
+        </div>
+
+        <div class="pomodoro container">
+            <h2 class="catchcopy__header">What is Pomodoro Technique?</h2>
+            <p class="catchcopy__text">
+                The Pomodoro Technique is created by Francesco Cirillo for a
+                more productive way to work and study. The technique uses a
+                timer to break down work into intervals, traditionally 25
+                minutes in length, separated by short breaks. Each interval
+                is known as a pomodoro, from the Italian word for 'tomato',
+                after the tomato-shaped kitchen timer that Cirillo used as a
+                university student. -
+                <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener">Wikipedia</a>
+            </p>
+        </div>
+
+        <div class="pomodoro container">
+            <h2 class="catchcopy__header">
+                How to use the Pomodoro Timer?
+            </h2>
+            <ol class="features__list-ol">
+                <li><strong>Add tasks</strong> to work on today</li>
+                <li>
+                    <strong>Set estimate pomodoros</strong> (1 = 25min of
+                    work) for each tasks
+                </li>
+                <li><strong>Select a task</strong> to work on</li>
+                <li>
+                    <strong>Start timer</strong> and focus on the task for 25
+                    minutes
+                </li>
+                <li>
+                    <strong>Take a break</strong> for 5 minutes when the alarm
+                    ring
+                </li>
+                <li>
+                    <strong>Iterate</strong> 3-5 until you finish the tasks
+                </li>
+            </ol>
+        </div>
+    </main>
+    <div class="footer">
+        <div class="footer__me">Made while drinking ☕ by <a href="https://www.github.com/aystic" target="blank">Mohit
+                Pathak</a></div>
+    </div>
+    </div>
+
+
+
+    <!-- load the frontend testing & reviewing dependencies -->
+    <!-- <script src='./lib/review-buttons.js' type='module'></script>
+    <script src='./lib/gremlins.js'></script> -->
+
+    <!-- load your app -->
+    <script src="script/script.js"></script>
+</body>
+
+</html>
