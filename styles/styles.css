@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    margin: 0;
+    margin: 0 auto;
     font-family: 'Varela Round', sans-serif;
     font-weight: 300;
     -webkit-tap-highlight-color: transparent;
@@ -342,7 +342,7 @@ a {
     background-color: rgba(0, 0, 0, 0.1);
     height: 1px;
     margin-bottom: 40px;
-    width: 620px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
