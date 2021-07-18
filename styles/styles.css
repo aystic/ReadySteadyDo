@@ -500,7 +500,7 @@ a {
 }
 
 .task-btn {
-    display: flex;
+    display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
@@ -911,4 +911,44 @@ textarea {
 
 #reset-btn {
     margin: 1em auto;
+}
+
+.todo-tasks {
+    display: block;
+    cursor: pointer;
+    margin: 1em auto;
+    height: fit-content;
+    width: 30em;
+    padding: 1em;
+    border: none;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-family: 'Varela Round',
+        sans-serif;
+    font-size: 1em;
+    text-align: left;
+    color: rgb(240, 91, 86);
+    font-weight: bold;
+    background-color: white;
+    transition: 100ms;
+}
+
+.done-tasks {
+    display: block;
+    cursor: pointer;
+    margin: 1em auto;
+    height: 1em;
+    width: 30em;
+    padding: 1em;
+    border: none;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-family: 'Varela Round',
+        sans-serif;
+    font-size: 1em;
+    text-align: left;
+    color: rgb(240, 91, 86);
+    font-weight: bold;
+    background-color: white;
+    transition: 100ms;
 }
