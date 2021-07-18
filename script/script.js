@@ -124,6 +124,7 @@ function editTheTimer() {
     start.addEventListener("click", startCountDown);
     start.classList.remove("notallowed-btn");
   }
+  localStorage.CurrentDefaultTime = localStorage.MinutesLeft;
 }
 
 function changeToLongBreak() {
