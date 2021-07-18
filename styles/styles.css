@@ -370,11 +370,13 @@ a {
 }
 
 .time-btn-wrapper {
-    display: inline-flex;
-    -webkit-box-pack: center;
+    /* display: flex; */
+    /* -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: center;
-    align-items: center;
+    align-items: center; */
+    justify-content: center;
+    align-items: stretch;
 }
 
 .time-btn-active {
@@ -384,7 +386,8 @@ a {
     font-family: 'Varela Round', sans-serif;
     font-size: 18px;
     padding: 2px 12px;
-    height: 28px;
+    /* height: 28px; */
+    height: fit-content;
     cursor: pointer;
     background: none rgba(0, 0, 0, 0.15);
     box-shadow: none;
@@ -951,4 +954,8 @@ textarea {
     font-weight: bold;
     background-color: white;
     transition: 100ms;
+}
+
+#timer-string {
+    font-size: 10vh;
 }
