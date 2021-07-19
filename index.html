@@ -23,21 +23,6 @@
                                 Ready Steady Do
                             </a>
                         </h1>
-                        <!-- <span class="btn-container ">
-                            <button class="navbar-btn">
-                                <img src="assets/icons/graph-white.png" alt="graph icon" class="btn-icon-navbar">
-                            </button>
-                            <button class="navbar-btn">
-                                <img src="assets/icons/config-white.png" alt="config icon" class="btn-icon-navbar">
-                                <div class="icon-btn-wrapper">Setting</div>
-                            </button>
-                            <div class="login-wrapper">
-                                <button class="navbar-btn">
-                                    <img src="assets/icons/user-white.png" alt="" class="btn-icon-navbar">
-                                    <div class="icon-btn-wrapper">Login</div>
-                                </button>
-                            </div>
-                        </span> -->
                     </div>
                 </div>
                 <div>
@@ -60,40 +45,64 @@
                                     class="time-count-btn">EDIT</button>
                                 <div><button class="task-btn" id="reset-btn"><img class="task-icon"
                                             src="assets/icons/rotating-arrow-symbol.png"></button>
-                                    <button class="task-btn" id="reset-btn"><img class="task-icon"
-                                            src="assets/icons/settings.png"></button>
                                 </div>
+                                <select class="form-select" label="Select ambient sound" id="sound-selection-dropdown">
+                                    <option selected>Select ambient sound</option>
+                                    <option value="Birds">Birds</option>
+                                    <option value="Boat">Boat</option>
+                                    <option value="City">City</option>
+                                    <option value="CoffeeShop">Coffee-Shop</option>
+                                    <option value="Fireplace">Fireplace</option>
+                                    <option value="PinkNoise">Pink-Noise</option>
+                                    <option value="Rain">Rain</option>
+                                    <option value="Storm">Storm</option>
+                                    <option value="Stream">Stream</option>
+                                    <option value="SummerNight">Summer-Night</option>
+                                    <option value="Train">Train</option>
+                                    <option value="Waves">Waves</option>
+                                    <option value="WhiteNoise">White-Noise</option>
+                                    <option value="Wind">Wind</option>
+                                </select>
 
                             </div>
                             <div class="work-status">Time to work!</div>
                         </div>
                         <div class="task-container">
                             <div class="task-list">
-                                <span class="task">Tasks</span>
+                                <span class="task-head">Tasks</span>
                                 <div class="task-icon-container">
-                                    <button class="task-btn">
-                                        <img src="assets/icons/threedots-white.png" alt="" class="task-icon">
-                                    </button>
+                                    <button class="task-btn" id="reset-tasks-btn"><img class="task-icon"
+                                            src="assets/icons/rotating-arrow-symbol.png"></button>
                                 </div>
                             </div>
-                            <div class="task-border"></div>
+
+
+
+
+                            <list class="doing-tasks list">
+                                <div class="todo-task task"><input type="checkbox" class="task-checkbox"><span
+                                        class="task-details" id="task-no-1">fdskjfkfsjlfjsljfsl</span><img
+                                        src="assets/icons/trash.png" alt="" class="delete-task">
+                                </div>
+                            </list>
+                            <div class="splitter"></div>
+                            <list class="done-tasks list">
+                                <div class="todo-task task"><input type="checkbox" class="task-checkbox"><span
+                                        class="task-details" id="task-no-1">fdskjfkfsjlfjsljfsl</span><img
+                                        src="assets/icons/trash.png" alt="" class="delete-task">
+                                </div>
+                            </list>
+
+
+
+
+
+
                             <div id="add-new-task-btn" class="add-task-container">
                                 <img src="assets/icons/plus-circle-white.png" alt="" class="add-task-icon">
                                 <div class="add-task">Add Task</div>
                             </div>
                         </div>
-
-
-
-
-
-                        <!-- <div class="board">
-                            <div class="boardWrapper">
-                                <div>Est: <span class="boardItems">2</span></div>
-                                <div>Act: <span class="boardItems">0</span></div>
-                                <div>Finish at <span class="boardItems">14:43</span></div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -163,14 +172,6 @@
                 Pathak</a></div>
     </div>
     </div>
-
-
-
-    <!-- load the frontend testing & reviewing dependencies -->
-    <!-- <script src='./lib/review-buttons.js' type='module'></script>
-    <script src='./lib/gremlins.js'></script> -->
-
-    <!-- load your app -->
     <script src="script/script.js"></script>
 </body>
 

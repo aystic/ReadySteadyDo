@@ -142,6 +142,7 @@ function changeToLongBreak() {
     minutes.innerHTML = JSON.parse(localStorage.LongBreakMinutesDefault);
     seconds.innerHTML = "00";
     localStorage.MinutesLeft = minutes.innerHTML;
+    document.querySelector(".work-status").innerHTML = "Its time for a break!";
   }
   localStorage.CurrentDefaultTime = localStorage.LongBreakMinutesDefault;
 }
@@ -161,6 +162,7 @@ function changeToShortBreak() {
     minutes.innerHTML = JSON.parse(localStorage.ShortBreakMinutesDefault);
     seconds.innerHTML = "00";
     localStorage.MinutesLeft = minutes.innerHTML;
+    document.querySelector(".work-status").innerHTML = "Its time for a break!";
   }
   localStorage.CurrentDefaultTime = localStorage.ShortBreakMinutesDefault;
 }
@@ -180,6 +182,7 @@ function changeToPomodoro() {
     minutes.innerHTML = JSON.parse(localStorage.PomodoroMinutesDefault);
     seconds.innerHTML = "00";
     localStorage.MinutesLeft = minutes.innerHTML;
+    document.querySelector(".work-status").innerHTML = "Time to work!";
   }
   localStorage.CurrentDefaultTime = localStorage.PomodoroMinutesDefault;
 }
