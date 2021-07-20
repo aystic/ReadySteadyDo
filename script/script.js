@@ -41,12 +41,10 @@ if (localStorage.SecondsLeft < 10) {
 }
 
 //handling of the audio
-let click = document.createElement("audio");
-click.src = "assets/sound/button.wav";
-let timeup = document.createElement("audio");
-timeup.src = "assets/sound/notification.wav";
-let backgroundSound = document.createElement("audio");
-backgroundSound.loop = true;
+let click = document.querySelector("#Click");
+let timeup = document.querySelector("#Notification");
+let selectedSound;
+let backgroundSound;
 
 start.addEventListener("click", startCountDown);
 reset.addEventListener("click", resetTheTimer);
@@ -67,20 +65,25 @@ function startCountDown() {
     let minutesLeft = localStorage.MinutesLeft;
     let secondsLeft = localStorage.SecondsLeft;
     removeEventListeners();
-    let selectedSound = document.querySelector("select").value;
-    backgroundSound.src = "assets/sound/" + selectedSound + ".ogg";
+    selectedSound = document.querySelector("select").value;
+    if (
+      selectedSound != "Select ambient sound" &&
+      localStorage.CurrentPage === "Pomodoro"
+    ) {
+      backgroundSound = document.querySelector("#" + selectedSound);
+      backgroundSound.play();
+    }
+    document.querySelector("select").disabled = true;
+    document.querySelector("select").classList.add("notallowed-btn");
     countDown(minutesLeft, secondsLeft);
+  } else {
     if (
       selectedSound != "Select ambient sound" &&
       localStorage.CurrentPage === "Pomodoro"
     )
-      backgroundSound.play();
-  } else {
-    if (
-      backgroundSound.src != "Select ambient sound" &&
-      localStorage.CurrentPage === "Pomodoro"
-    )
       backgroundSound.pause();
+    document.querySelector("select").disabled = false;
+    document.querySelector("select").classList.remove("notallowed-btn");
     document.querySelector("html").classList.remove("inhibit-scrolling");
     clearInterval(theCountDownToken);
     reset.classList.remove("notallowed-btn");
@@ -249,9 +252,10 @@ function countDown(minutesLeft, secondsLeft) {
     } else {
       console.log(theCountDownToken);
       clearInterval(theCountDownToken);
-      if (backgroundSound.src != "Select ambient sound")
-        backgroundSound.pause();
+      if (selectedSound != "Select ambient sound") backgroundSound.pause();
       timeup.play();
+      document.querySelector("select").disabled = false;
+      document.querySelector("select").classList.remove("notallowed-btn");
       restoreEventListeners();
       start.click();
       let pomodoro = JSON.parse(localStorage.PomodoroCompleted);
