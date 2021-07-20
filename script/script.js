@@ -251,12 +251,6 @@ function countDown(minutesLeft, secondsLeft) {
         minutes.innerHTML = minutesLeft;
         seconds.innerHTML = secondsLeft;
       }
-      // console.log(
-      //   "Current time of track : " +
-      //     backgroundSound.currentTime +
-      //     " and total duration is " +
-      //     backgroundSound.duration
-      // );
       if (backgroundSound.currentTime >= 0.8 * durationBackgroundSound) {
         console.log("80% track complete");
         backgroundSound.currentTime = 0;
