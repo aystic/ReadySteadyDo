@@ -408,12 +408,10 @@ a {
 
 .time-btn-active {
     border: none;
-    margin: 0;
     border-radius: 4px;
     font-family: 'Varela Round', sans-serif;
     font-size: 18px;
-    padding: 2px 12px;
-    /* height: 28px; */
+    padding: 3.2px 12px;
     height: fit-content;
     cursor: pointer;
     background: none rgba(0, 0, 0, 0.15);
@@ -426,7 +424,7 @@ a {
 .time-btn {
     border: none;
     color: white;
-    margin: 0px;
+    /* margin: 1em 0 1em; */
     border-radius: 4px;
     font-family: 'Varela Round', sans-serif;
     font-size: 18px;
@@ -449,7 +447,7 @@ a {
 .time-count-btn {
     cursor: pointer;
     border: none;
-    margin: 20px 0px 0px;
+    margin: 20px 0 0;
     padding: 0px 12px;
     border: 2px solid white;
     border-radius: 4px;
@@ -512,6 +510,10 @@ a {
 
 }
 
+.pomodoro-color {
+    color: #f05b56;
+}
+
 .time-count-btn-active {
     cursor: pointer;
     border: none;
@@ -568,16 +570,9 @@ a {
 }
 
 .task-details {
-    color: #f05b56;
+    color: black;
 }
 
-.task-details-short {
-    color: #1abc9c;
-}
-
-.task-details-long {
-    color: #3498db;
-}
 
 .task-head {
     font-size: 18px;
@@ -1118,6 +1113,6 @@ textarea {
 }
 
 .completed-task {
-    color: grey;
+    color: rgb(128, 128, 128);
     text-decoration: line-through;
 }

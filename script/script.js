@@ -40,6 +40,14 @@ if (localStorage.SecondsLeft < 10) {
   seconds.innerHTML = localStorage.SecondsLeft;
 }
 
+//handling of the audio
+let click = document.createElement("audio");
+click.src = "assets/sound/button.wav";
+let timeup = document.createElement("audio");
+timeup.src = "assets/sound/notification.wav";
+let backgroundSound = document.createElement("audio");
+backgroundSound.loop = true;
+
 start.addEventListener("click", startCountDown);
 reset.addEventListener("click", resetTheTimer);
 edit.addEventListener("click", editTheTimer);
@@ -51,14 +59,29 @@ longBreak.addEventListener("click", changeToLongBreak);
 //functions
 function startCountDown() {
   if (start.innerHTML === "START") {
+    click.play();
+    document.querySelector("html").classList.add("inhibit-scrolling");
     edit.classList.add("notallowed-btn");
     start.innerHTML = "STOP";
     start.setAttribute("class", "time-count-btn-active");
     let minutesLeft = localStorage.MinutesLeft;
     let secondsLeft = localStorage.SecondsLeft;
     removeEventListeners();
+    let selectedSound = document.querySelector("select").value;
+    backgroundSound.src = "assets/sound/" + selectedSound + ".ogg";
     countDown(minutesLeft, secondsLeft);
+    if (
+      selectedSound != "Select ambient sound" &&
+      localStorage.CurrentPage === "Pomodoro"
+    )
+      backgroundSound.play();
   } else {
+    if (
+      backgroundSound.src != "Select ambient sound" &&
+      localStorage.CurrentPage === "Pomodoro"
+    )
+      backgroundSound.pause();
+    document.querySelector("html").classList.remove("inhibit-scrolling");
     clearInterval(theCountDownToken);
     reset.classList.remove("notallowed-btn");
     reset.addEventListener("click", resetTheTimer);
@@ -66,6 +89,7 @@ function startCountDown() {
     localStorage.SecondsLeft = seconds.innerHTML;
     start.innerHTML = "START";
     start.setAttribute("class", "time-count-btn");
+    changeTheTextColorOfElements(localStorage.CurrentPage);
   }
 }
 
@@ -124,6 +148,7 @@ function editTheTimer() {
     edit.setAttribute("class", "time-count-btn");
     start.addEventListener("click", startCountDown);
     start.classList.remove("notallowed-btn");
+    changeTheTextColorOfElements(localStorage.CurrentPage);
   }
   localStorage.CurrentDefaultTime = localStorage.MinutesLeft;
 }
@@ -144,6 +169,7 @@ function changeToLongBreak() {
     seconds.innerHTML = "00";
     localStorage.MinutesLeft = minutes.innerHTML;
     document.querySelector(".work-status").innerHTML = "Its time for a break!";
+    changeTheTextColorOfElements(localStorage.CurrentPage);
   }
   localStorage.CurrentDefaultTime = localStorage.LongBreakMinutesDefault;
 }
@@ -164,7 +190,9 @@ function changeToShortBreak() {
     seconds.innerHTML = "00";
     localStorage.MinutesLeft = minutes.innerHTML;
     document.querySelector(".work-status").innerHTML = "Its time for a break!";
+    changeTheTextColorOfElements(localStorage.CurrentPage);
   }
+
   localStorage.CurrentDefaultTime = localStorage.ShortBreakMinutesDefault;
 }
 
@@ -184,6 +212,7 @@ function changeToPomodoro() {
     seconds.innerHTML = "00";
     localStorage.MinutesLeft = minutes.innerHTML;
     document.querySelector(".work-status").innerHTML = "Time to work!";
+    changeTheTextColorOfElements(localStorage.CurrentPage);
   }
   localStorage.CurrentDefaultTime = localStorage.PomodoroMinutesDefault;
 }
@@ -220,6 +249,9 @@ function countDown(minutesLeft, secondsLeft) {
     } else {
       console.log(theCountDownToken);
       clearInterval(theCountDownToken);
+      if (backgroundSound.src != "Select ambient sound")
+        backgroundSound.pause();
+      timeup.play();
       restoreEventListeners();
       start.click();
       let pomodoro = JSON.parse(localStorage.PomodoroCompleted);
@@ -282,17 +314,18 @@ function resetTheTimer() {
 
 function changeTheTextColorOfElements(page) {
   let task = document.querySelector(".task-details");
+  let taskRestoreBtn = document.querySelector(".reset-completed-task-btn-img");
   if (page === "Pomodoro") {
+    //main page
     start.setAttribute("class", "time-count-btn");
     edit.setAttribute("class", "time-count-btn");
-    task.setAttribute("class", "task-details");
   } else if (page === "ShortBreak") {
-    edit.setAttribute("class", "time-count-btn-short");
+    //short break page
     start.setAttribute("class", "time-count-btn-short");
-    task.setAttribute("class", "task-details-short");
+    edit.setAttribute("class", "time-count-btn-short");
   } else {
-    edit.setAttribute("class", "time-count-btn-long");
+    //long break page
     start.setAttribute("class", "time-count-btn-long");
-    task.setAttribute("class", "task-details-long");
+    edit.setAttribute("class", "time-count-btn-long");
   }
 }
