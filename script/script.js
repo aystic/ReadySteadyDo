@@ -45,6 +45,7 @@ let click = document.querySelector("#Click");
 let timeup = document.querySelector("#Notification");
 let selectedSound;
 let backgroundSound;
+let durationBackgroundSound;
 
 start.addEventListener("click", startCountDown);
 reset.addEventListener("click", resetTheTimer);
@@ -71,6 +72,7 @@ function startCountDown() {
       localStorage.CurrentPage === "Pomodoro"
     ) {
       backgroundSound = document.querySelector("#" + selectedSound);
+      durationBackgroundSound = backgroundSound.duration;
       backgroundSound.play();
     }
     document.querySelector("select").disabled = true;
@@ -248,6 +250,16 @@ function countDown(minutesLeft, secondsLeft) {
         }
         minutes.innerHTML = minutesLeft;
         seconds.innerHTML = secondsLeft;
+      }
+      // console.log(
+      //   "Current time of track : " +
+      //     backgroundSound.currentTime +
+      //     " and total duration is " +
+      //     backgroundSound.duration
+      // );
+      if (backgroundSound.currentTime >= 0.8 * durationBackgroundSound) {
+        console.log("80% track complete");
+        backgroundSound.currentTime = 0;
       }
     } else {
       console.log(theCountDownToken);
