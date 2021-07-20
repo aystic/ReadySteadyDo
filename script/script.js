@@ -30,6 +30,7 @@ let minutes = document.querySelector("#minutes-left");
 let seconds = document.querySelector("#seconds-left");
 let wrapper = document.querySelector(".wrapper-pomodoro");
 let reset = document.querySelector("#reset-btn");
+let theCountDownToken;
 
 //if the local storage is available then fetching the values and setting them up
 minutes.innerHTML = localStorage.MinutesLeft;
@@ -277,4 +278,21 @@ function resetTheTimer() {
   minutes.innerHTML = localStorage.MinutesLeft;
   seconds.innerHTML = "00";
   restoreEventListeners();
+}
+
+function changeTheTextColorOfElements(page) {
+  let task = document.querySelector(".task-details");
+  if (page === "Pomodoro") {
+    start.setAttribute("class", "time-count-btn");
+    edit.setAttribute("class", "time-count-btn");
+    task.setAttribute("class", "task-details");
+  } else if (page === "ShortBreak") {
+    edit.setAttribute("class", "time-count-btn-short");
+    start.setAttribute("class", "time-count-btn-short");
+    task.setAttribute("class", "task-details-short");
+  } else {
+    edit.setAttribute("class", "time-count-btn-long");
+    start.setAttribute("class", "time-count-btn-long");
+    task.setAttribute("class", "task-details-long");
+  }
 }

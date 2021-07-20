@@ -17,10 +17,10 @@ select {
     border-radius: 0.25em;
     border: none;
     padding: 1em;
-    width: 50%;
+    width: fit-content;
     height: 3em;
     font-family: inherit;
-    font-size: inherit;
+    font-size: 1em;
     cursor: inherit;
     line-height: inherit;
     outline: none;
@@ -465,6 +465,44 @@ a {
     transition: 100ms;
 }
 
+.time-count-btn-short {
+    cursor: pointer;
+    border: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border: 2px solid white;
+    border-radius: 4px;
+    /* box-shadow: rgb(235, 235, 235) 0px 6px 0px; */
+    font-family: 'Varela Round', sans-serif;
+    font-size: 22px;
+    height: 55px;
+    color: #1abc9c;
+    font-weight: bold;
+    width: 200px;
+    background-color: white;
+    /* transition: color 0.5s ease-in-out 0s; */
+    transition: 100ms;
+}
+
+.time-count-btn-long {
+    cursor: pointer;
+    border: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border: 2px solid white;
+    border-radius: 4px;
+    /* box-shadow: rgb(235, 235, 235) 0px 6px 0px; */
+    font-family: 'Varela Round', sans-serif;
+    font-size: 22px;
+    height: 55px;
+    color: #3498db;
+    font-weight: bold;
+    width: 200px;
+    background-color: white;
+    /* transition: color 0.5s ease-in-out 0s; */
+    transition: 100ms;
+}
+
 .short-break-color {
     color: #1abc9c;
 }
@@ -529,6 +567,18 @@ a {
     padding-bottom: 14px;
 }
 
+.task-details {
+    color: #f05b56;
+}
+
+.task-details-short {
+    color: #1abc9c;
+}
+
+.task-details-long {
+    color: #3498db;
+}
+
 .task-head {
     font-size: 18px;
     font-weight: bold;
@@ -583,6 +633,8 @@ a {
     background-color: rgba(255, 255, 255, 0.6);
 }
 
+
+
 .delete-task {
     height: 1.5em;
     width: 1.5em;
@@ -616,6 +668,9 @@ a {
     transition: 100ms;
 }
 
+.completed-task {
+    text-decoration: line-through;
+}
 
 
 .add-task-container {
@@ -1044,4 +1099,9 @@ textarea {
 
 .inhibit-scrolling {
     overflow-y: hidden;
+}
+
+.completed-task {
+    color: grey;
+    text-decoration: line-through;
 }
