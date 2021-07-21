@@ -251,7 +251,10 @@ function countDown(minutesLeft, secondsLeft) {
         minutes.innerHTML = minutesLeft;
         seconds.innerHTML = secondsLeft;
       }
-      if (backgroundSound.currentTime >= 0.8 * durationBackgroundSound) {
+      if (
+        selectedSound != "Select ambient sound" &&
+        backgroundSound.currentTime >= 0.8 * durationBackgroundSound
+      ) {
         console.log("80% track complete");
         backgroundSound.currentTime = 0;
       }
