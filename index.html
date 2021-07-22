@@ -56,6 +56,8 @@
                     </div>
                 </div>
                 <div>
+                    <audio preload src="assets/sound/button.wav" id="Click"></audio>
+                    <audio preload src="assets/sound/notification.wav" id="Notification"></audio>
                     <audio preload loop src="assets/sound/Birds.ogg" id="Birds"></audio>
                     <audio preload loop src="assets/sound/Boat.ogg" id="Boat"></audio>
                     <audio preload loop src="assets/sound/City.ogg" id="City"></audio>
@@ -70,8 +72,6 @@
                     <audio preload loop src="assets/sound/Waves.ogg" id="Waves"></audio>
                     <audio preload loop src="assets/sound/WhiteNoise.ogg" id="WhiteNoise"></audio>
                     <audio preload loop src="assets/sound/Wind.ogg" id="Wind"></audio>
-                    <audio preload src="assets/sound/button.wav" id="Click"></audio>
-                    <audio preload src="assets/sound/notification.wav" id="Notification"></audio>
                     <div class="todo-wrapper">
                         <div class="todo-wrapper-border">
                             <div class="todo-border" id="progress-bar"></div>
@@ -127,33 +127,51 @@
 
 
                             <list class="doing-tasks list">
-                                <div class="todo-task task"><input type="checkbox" class="task-checkbox"><span
-                                        class="task-details" id="task-no-1">Dummy Task</span><button><img
-                                            src="assets/icons/trash.png" alt="" class="delete-task"></button>
-                                </div>
+                                <!-- <div class="todo-task task"><input type="checkbox" class="task-checkbox"><span
+                                        class="task-details" id="task-no-1">The Pomodoro Technique, designed by
+                                        developer and entrepreneur Francesco Cirillo in the 1980s, is named after those
+                                        cute tomato-shaped kitchen timers that start ticking with a twist of the top.
+                                        (Pomodoro is the Italian word for tomato.)...Set the timer for 25 minutes and
+                                        start working. [3x🍅]</span><button><img src="assets/icons/trash.png" alt=""
+                                            class="delete-task"></button>
+                                </div> -->
                             </list>
 
                             <div class="splitter"></div>
 
 
                             <list class="done-tasks list">
-                                <div class="todo-task task"><button class="reset-completed-task"><img
+                                <!-- <div class="todo-task task"><button class="reset-completed-task"><img
                                             class="reset-completed-task-btn-img"
                                             src="assets/icons/rotating-arrow-symbol-grey.png" alt=""></button><span
                                         class="completed-task" id="task-no-1">Dummy
                                         Task</span><button><img src="assets/icons/trash.png" alt=""
                                             class="delete-task"></button>
-                                </div>
+                                </div> -->
                             </list>
 
 
-
-
+                            <!-- <img src="assets/icons/caret-up.png" alt="" class="inc-dec-btn-img">
+                            <img src="assets/icons/caret-down.png" alt="" class="inc-dec-btn-img"> -->
 
 
                             <div id="add-new-task-btn" class="add-task-container">
-                                <img src="assets/icons/plus-circle-white.png" alt="" class="add-task-icon">
-                                <div class="add-task">Add Task</div>
+                                <div id="add-new-task-options">
+                                    <textarea name="Task-details" id="Enter-task"
+                                        placeholder="Enter the task"></textarea>
+                                    <div id="enter-task-btns">
+                                        <span>Number of Pomodoros :</span>
+                                        <div id="pomodoro-inc-dec">
+                                            <input type="number" min="1" id="no-of-pomodoro" value="1">
+                                            <button id="inc" class="inc-dec-btn">&#8593;</button>
+                                            <button id="dec" class="inc-dec-btn">&#8595;</button>
+                                        </div>
+                                        <button class="add-new-task-option-btns" id="save">Save</button>
+                                    </div>
+                                    <!-- <img src="assets/icons/plus-circle-white.png" alt="" class="add-task-icon">
+                                <div class="add-task">Add Task</div> -->
+                                </div>
+
                             </div>
                         </div>
                     </div>
