@@ -496,6 +496,12 @@ function deleteTask(number) {
 }
 
 function resetTask(number) {
+  let toChange = localStorage.getItem("Task" + number).split("|");
+  toChange[2] = "false";
+  localStorage.setItem(
+    "Task" + number,
+    toChange[0] + "|" + toChange[1] + "|" + toChange[2]
+  );
   let completedTask = document.querySelector(".parent-of-task-" + number);
   completedTask.remove();
   let task = localStorage.getItem("Task" + number).split("|")[0];
