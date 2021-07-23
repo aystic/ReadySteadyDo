@@ -12,7 +12,6 @@ if (localStorage.length == 0) {
   localStorage.MinutesLeft = 25;
   localStorage.SecondsLeft = 0;
   localStorage.NumberOfTasks = 0;
-  localStorage.TasksDone = 0;
   localStorage.CompletedTasksList = "";
   localStorage.PomodoroCompleted = 0;
   localStorage.TotalFocusTime = 0;
@@ -66,6 +65,74 @@ pomodoro.addEventListener("click", changeToPomodoro);
 shortBreak.addEventListener("click", changeToShortBreak);
 longBreak.addEventListener("click", changeToLongBreak);
 
+//restoring old tasks
+if (localStorage.NumberOfTasks > 0) {
+  let n = localStorage.length;
+  for (let i = 0; i < n; i++) {
+    if (localStorage.key(i).slice(0, 4) === "Task") {
+      let taskNumber = localStorage.key(i).slice(4, 5);
+      taskNumber = JSON.parse(taskNumber);
+      let value = localStorage.getItem(localStorage.key(i)).split("|")[0];
+      let noOfPomodoros = localStorage
+        .getItem(localStorage.key(i))
+        .split("|")[1];
+      if (localStorage.getItem(localStorage.key(i)).split("|")[2] == "false") {
+        //add to todo
+        let div = document.createElement("div");
+        div.setAttribute(
+          "class",
+          "todo-task task parent-of-task-" + taskNumber
+        );
+        div.innerHTML =
+          '<input type="checkbox" class="task-checkbox" id="task-checkbox-' +
+          taskNumber +
+          '" onclick="markCompleted(' +
+          taskNumber +
+          ')"><span class="task-details" id="task-no-' +
+          taskNumber +
+          '">' +
+          value +
+          "[" +
+          noOfPomodoros +
+          "X🍅]" +
+          '</span><button id="delete-task-' +
+          taskNumber +
+          '" onclick="deleteTask(' +
+          taskNumber +
+          ')"><img src="assets/icons/trash.png" alt="" class="delete-task"></button>';
+        let list = document.querySelector(".doing-tasks");
+        list.appendChild(div);
+      } else {
+        //add to completed
+        let div = document.createElement("div");
+        div.setAttribute(
+          "class",
+          "todo-task task parent-of-task-" + taskNumber
+        );
+        div.innerHTML =
+          '<button class="reset-completed-task" id="reset-completed-task-' +
+          taskNumber +
+          '" onclick="resetTask(' +
+          taskNumber +
+          ')"><img class="reset-completed-task-btn-img" src="assets/icons/rotating-arrow-symbol-grey.png" alt=""></button><span class="completed-task" id="task-no-' +
+          taskNumber +
+          '">' +
+          value +
+          "[" +
+          noOfPomodoros +
+          "X🍅]" +
+          '</span><button><img src="assets/icons/trash.png" alt="" class="delete-task" id="delete-task-' +
+          taskNumber +
+          '"onclick="deleteTask(' +
+          taskNumber +
+          ')"></button></div>';
+        let list = document.querySelector(".done-tasks");
+        list.append(div);
+      }
+    }
+  }
+}
+
 //adding of new task
 saveTheTask.addEventListener("click", addANewTask);
 
@@ -91,7 +158,8 @@ function startCountDown() {
     }
     document.querySelector("select").disabled = true;
     document.querySelector("select").classList.add("notallowed-btn");
-    countDown(minutesLeft, secondsLeft);
+    // countDown(minutesLeft, secondsLeft);
+    countDown(0, 5);
   } else {
     if (
       selectedSound != "Select ambient sound" &&
@@ -381,7 +449,7 @@ function addANewTask() {
     list.appendChild(div);
     localStorage.setItem(
       "Task" + taskNumber,
-      task.value + "|" + noOfPomodoros.value
+      task.value + "|" + noOfPomodoros.value + "|" + "false"
     );
     task.value = "";
     noOfPomodoros.value = 1;
@@ -390,6 +458,13 @@ function addANewTask() {
 }
 
 function markCompleted(number) {
+  let toChange = localStorage.getItem("Task" + number).split("|");
+  toChange[2] = "true";
+  localStorage.setItem(
+    "Task" + number,
+    toChange[0] + "|" + toChange[1] + "|" + toChange[2]
+  );
+  let noOfPomodoros = toChange[1];
   let value = document.querySelector("#task-no-" + number).innerText;
   let task = document.querySelector(".parent-of-task-" + number);
   task.remove();
