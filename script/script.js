@@ -158,8 +158,8 @@ function startCountDown() {
     }
     document.querySelector("select").disabled = true;
     document.querySelector("select").classList.add("notallowed-btn");
-    // countDown(minutesLeft, secondsLeft);
-    countDown(0, 5);
+    countDown(minutesLeft, secondsLeft);
+    //countDown(0, 5);
   } else {
     if (
       selectedSound != "Select ambient sound" &&
