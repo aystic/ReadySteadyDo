@@ -1749,3 +1749,21 @@ input[type="number"i] {
 #cancel:active {
     background-color: lightsalmon;
 }
+
+#website-reset-btn {
+    position: fixed;
+    left: 1%;
+    top: 1%;
+    border: 0.25em gray solid;
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;
+    font-family: 'Varela Round',
+        sans-serif;
+    font: 1.5em;
+    transition: 400ms;
+}
+
+#website-reset-btn:hover {
+    background-color: whitesmoke;
+}
