@@ -159,7 +159,6 @@ function startCountDown() {
     document.querySelector("select").disabled = true;
     document.querySelector("select").classList.add("notallowed-btn");
     countDown(minutesLeft, secondsLeft);
-    //countDown(0, 5);
   } else {
     if (
       selectedSound != "Select ambient sound" &&
@@ -173,7 +172,11 @@ function startCountDown() {
     reset.classList.remove("notallowed-btn");
     reset.addEventListener("click", resetTheTimer);
     localStorage.MinutesLeft = minutes.innerHTML;
-    localStorage.SecondsLeft = seconds.innerHTML;
+    let tempSeconds = seconds.innerHTML;
+    if (tempSeconds[0] == '0') {
+      tempSeconds = tempSeconds[1];
+    }
+    localStorage.SecondsLeft = JSON.parse(tempSeconds);
     start.innerHTML = "START";
     start.setAttribute("class", "time-count-btn");
     changeTheTextColorOfElements(localStorage.CurrentPage);
